@@ -22,20 +22,18 @@
     "camelcase": 1,
     "no-new-wrappers": 1,
     "no-nested-ternary": 1,
-    "no-console": 1,
     "no-template-curly-in-string": 1,
     "no-self-compare": 1,
     "import/prefer-default-export": 0,
     "func-names": [1, "as-needed"],
     "arrow-body-style": 1,
-    "semi": [1, "never"],
     "import/no-extraneous-dependencies": ["off", { "devDependencies": false }]
   },
   "env": {
     "browser": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "airbnb-base", "prettier"],
+  "extends": ["eslint:recommended", "airbnb", "prettier", "plugin:react/recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
