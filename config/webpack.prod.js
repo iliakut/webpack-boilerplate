@@ -46,6 +46,9 @@ module.exports = merge(common, {
     runtimeChunk: {
       name: 'runtime',
     },
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   performance: {
     hints: false,
