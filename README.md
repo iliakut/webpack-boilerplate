@@ -2,7 +2,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Sensible webpack 5 boilerplate using Babel, PostCSS and Sass with a hot dev server and an optimized production build.
+Sensible webpack 5 boilerplate using:
+Babel,
+PostCSS, Sass,
+React
 
 ## Installation
 
@@ -28,12 +31,6 @@ You can view the development server at `localhost:8080`.
 npm run build
 ```
 
-> Note: Install [http-server](https://www.npmjs.com/package/http-server) globally to deploy a simple server.
-
-```bash
-npm i -g http-server
-```
-
 You can view the deploy by creating a server in `dist`.
 
 ```bash
@@ -46,6 +43,7 @@ cd dist && http-server
 - [Babel](https://babeljs.io/)
 - [Sass](https://sass-lang.com/)
 - [PostCSS](https://postcss.org/)
+- [React](https://github.com/facebook/react)
 
 ## Dependencies
 
@@ -62,6 +60,7 @@ cd dist && http-server
 - [`@babel/core`](https://www.npmjs.com/package/@babel/core) - Transpile ES6+ to backwards compatible JavaScript
 - [`@babel/plugin-proposal-class-properties`](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) - Use properties directly on a class (an example Babel config)
 - [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env) - Smart defaults for Babel
+- [`@babel/preset-react`](https://babeljs.io/docs/en/babel-preset-react) - Preset for React
 
 ### Loaders
 
@@ -72,6 +71,7 @@ cd dist && http-server
   - [`postcss-preset-env`](https://www.npmjs.com/package/postcss-preset-env) - Sensible defaults for PostCSS
 - [`css-loader`](https://webpack.js.org/loaders/css-loader/) - Resolve CSS imports
 - [`style-loader`](https://webpack.js.org/loaders/style-loader/) - Inject CSS into the DOM
+
 
 ### Plugins
 
@@ -84,9 +84,9 @@ cd dist && http-server
 ### Linters
 
 - [`eslint`](https://github.com/eslint/eslint) - Enforce styleguide across application
-- [`eslint-config-airbnb-base`](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base) - Base styleguide to enforce rules
+- [`eslint-config-airbnb`](https://github.com/airbnb/javascript) - Airbnb JavaScript Style Guide 
+  (including eslint-plugin-import, eslint-plugin-react, eslint-plugin-react-hooks, and eslint-plugin-jsx-a11y)
 - [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) - Implment prettier rules
-- [`eslint-plugin-import`](https://github.com/benmosher/eslint-plugin-import) - Implment import rules
 - [`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier) - Dependency for prettier usage with ESLint
 - [`eslint-import-resolver-webpack`](https://github.com/benmosher/eslint-plugin-import/tree/master/resolvers/webpack) - Throw exceptions for import/export in webpack
 - [`eslint-webpack-plugin`](https://github.com/webpack-contrib/eslint-webpack-plugin) - ESLint configuration for webpack
