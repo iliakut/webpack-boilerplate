@@ -18,8 +18,8 @@
         "maxEOF": 1
       }
     ],
-    "no-var": 1,
     "camelcase": 1,
+    "semi": [1, "always"],
     "no-new-wrappers": 1,
     "no-nested-ternary": 1,
     "no-template-curly-in-string": 1,
@@ -33,7 +33,7 @@
     "browser": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "airbnb", "prettier", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "airbnb", "airbnb/hooks", "prettier", "plugin:react/recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
