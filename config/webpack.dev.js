@@ -1,9 +1,9 @@
-const webpack = require('webpack')
-const { merge } = require('webpack-merge')
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const webpack = require('webpack');
+const { merge } = require('webpack-merge');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-const common = require('./webpack.common')
-const paths = require('./paths')
+const common = require('./webpack.common');
+const paths = require('./paths');
 
 module.exports = merge(common, {
   // Set the mode to development or production
@@ -45,4 +45,4 @@ module.exports = merge(common, {
     new webpack.HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin()
   ],
-})
+});

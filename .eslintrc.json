@@ -5,7 +5,7 @@
       "error",
       {
         "ignoreUrls": true,
-        "code": 80
+        "code": 120
       }
     ],
     "prefer-template": "off",
@@ -33,7 +33,7 @@
     "browser": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "airbnb", "airbnb/hooks", "prettier", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "airbnb", "airbnb/hooks", "plugin:react/recommended", "prettier"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
