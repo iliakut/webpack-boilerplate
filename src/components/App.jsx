@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
-  const test = 'test';
-  console.log(test);
+  const [counter, setCounter] = useState(0);
 
-  return <div>React App</div>;
+  useEffect(() => {
+    const inter = setInterval(() => {
+      setCounter(counter + 1);
+    }, 1000);
+    return () => clearInterval(inter);
+  }, [counter]);
+
+  return <div>React App {counter}</div>;
 };
 
 export default App;

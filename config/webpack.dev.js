@@ -1,7 +1,8 @@
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
-const common = require('./webpack.common.js')
+const common = require('./webpack.common')
 const paths = require('./paths')
 
 module.exports = merge(common, {
@@ -42,5 +43,6 @@ module.exports = merge(common, {
   plugins: [
     // Only update what has changed on hot reload
     new webpack.HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin()
   ],
 })

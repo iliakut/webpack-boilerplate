@@ -6,7 +6,10 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 
 const paths = require('./paths')
 
+const isDevelopment = process.env.NODE_ENV !== 'production'
+
 module.exports = {
+  mode: isDevelopment ? 'development' : 'production',
   // Where webpack looks to start building the bundle
   entry: [paths.src + '/index.jsx'],
 
@@ -61,8 +64,17 @@ module.exports = {
       // JavaScript: Use Babel to transpile JavaScript files
       {
         test: /\.(js|jsx)$/,
-        use: ['babel-loader'],
-        exclude: ['/src/static', '/node-modules']
+        use: [
+          {
+            loader: require.resolve('babel-loader'),
+            options: {
+              plugins: [
+                isDevelopment && require.resolve('react-refresh/babel'),
+              ]
+            }
+          }
+        ],
+        exclude: ['/src/static', '/node-modules'],
       },
 
       // Images: Copy image files to build folder
