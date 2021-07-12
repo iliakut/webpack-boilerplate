@@ -11,7 +11,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 module.exports = {
   mode: isDevelopment ? 'development' : 'production',
   // Where webpack looks to start building the bundle
-  entry: [paths.src + '/index.jsx'],
+  entry: [paths.src + '/index.tsx'],
 
   // Where webpack outputs the assets and bundles
   output: {
@@ -75,6 +75,11 @@ module.exports = {
           }
         ],
         exclude: ['/src/static', '/node-modules'],
+      },
+
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
       },
 
       // Images: Copy image files to build folder
