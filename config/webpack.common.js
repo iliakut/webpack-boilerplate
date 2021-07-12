@@ -74,11 +74,12 @@ module.exports = {
             }
           }
         ],
-        exclude: ['/src/static', '/node-modules'],
+        exclude: /node_modules/,
       },
 
       {
         test: /\.tsx?$/,
+        exclude: /node_modules/,
         loader: 'ts-loader',
       },
 
@@ -92,7 +93,7 @@ module.exports = {
 
   resolve: {
     modules: [paths.src, 'node_modules'],
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx',],
     alias: {
       '@': paths.src,
     },

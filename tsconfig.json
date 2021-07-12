@@ -14,7 +14,8 @@
     "sourceMap": true,
     "strict": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules"

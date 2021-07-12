@@ -1,6 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
-const App = () => {
+type PropsType = {
+  test: boolean;
+};
+
+const App: FC<PropsType> = (props) => {
+  console.log(props.test);
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
