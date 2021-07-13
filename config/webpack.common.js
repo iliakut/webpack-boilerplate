@@ -93,7 +93,7 @@ module.exports = {
 
   resolve: {
     modules: [paths.src, 'node_modules'],
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx',],
+    extensions: ['.js', '.jsx', '.ts', '.tsx',],
     alias: {
       '@': paths.src,
     },
