@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import Logo from '../images/webpack-logo.svg';
 
 type PropsType = {
   test: boolean;
@@ -15,7 +16,12 @@ const App: FC<PropsType> = (props) => {
     return () => clearInterval(inter);
   }, [counter]);
 
-  return <div>React App {counter}</div>;
+  return (
+    <div>
+      <Logo />
+      React App {counter}
+    </div>
+  );
 };
 
 export default App;
