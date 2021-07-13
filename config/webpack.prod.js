@@ -1,18 +1,23 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const { merge } = require('webpack-merge');
-
 const paths = require('./paths');
 const common = require('./webpack.common');
+const { merge } = require('webpack-merge');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+const isAnalyze = typeof process.env.BUNDLE_ANALYZE !== "undefined";
 
 module.exports = merge(common, {
   mode: 'production',
+
   devtool: false,
+
   output: {
     path: paths.build,
     publicPath: '/',
     filename: 'js/[name].[contenthash].bundle.js',
   },
+
   module: {
     rules: [
       {
@@ -33,16 +38,21 @@ module.exports = merge(common, {
       },
     ],
   },
+
   plugins: [
-    // Extracts CSS into separate files
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[contenthash].css',
       chunkFilename: '[id].css',
     }),
-  ],
+    isAnalyze ? new BundleAnalyzerPlugin() : false
+  ].filter(Boolean),
+
   optimization: {
     minimize: true,
-    minimizer: [new CssMinimizerPlugin(), '...'],
+    minimizer: [
+      new CssMinimizerPlugin(),
+      '...', // defaults
+    ],
     runtimeChunk: {
       name: 'runtime',
     },
@@ -50,6 +60,7 @@ module.exports = merge(common, {
       chunks: 'all'
     }
   },
+
   performance: {
     hints: false,
     maxEntrypointSize: 512000,

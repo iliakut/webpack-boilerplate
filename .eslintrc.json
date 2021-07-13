@@ -1,5 +1,5 @@
 {
-  "ignorePatterns": ["dist", "node_modules"],
+  "ignorePatterns": ["dist", "node_modules", "config"],
   "rules": {
     "max-len": [
       "error",
@@ -27,13 +27,36 @@
     "import/prefer-default-export": 0,
     "func-names": [1, "as-needed"],
     "arrow-body-style": 1,
-    "import/no-extraneous-dependencies": ["off", { "devDependencies": false }]
+    "import/no-extraneous-dependencies": ["off", { "devDependencies": false }],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
   },
   "env": {
     "browser": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "airbnb", "airbnb/hooks", "plugin:react/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:react/recommended",
+    "prettier",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -47,7 +70,11 @@
     "import/resolver": {
       "webpack": {
         "config": "config/webpack.common.js"
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
+
     }
   }
 }
