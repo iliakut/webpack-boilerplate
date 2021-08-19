@@ -1,7 +1,7 @@
 {
   "name": "webpack-ts-react-boilerplate",
   "version": "1.0.0",
-  "description": "Webpack 5 boilerplate: Babel + PostCSS + SCSS + React",
+  "description": "Webpack 5 boilerplate: Babel + PostCSS + SCSS + React + TS",
   "main": "index.js",
   "author": "Tania Rascia",
   "license": "MIT",

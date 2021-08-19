@@ -5,7 +5,8 @@
 Sensible webpack 5 boilerplate using:
 Babel,
 PostCSS, Sass,
-React
+React,
+TypeScript
 
 ## Installation
 
