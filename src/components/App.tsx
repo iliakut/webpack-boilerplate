@@ -1,11 +1,8 @@
 import { FC, useEffect, useState } from 'react';
+import { AppProps } from './App.types';
 import Logo from '../images/webpack-logo.svg';
 
-type PropsType = {
-  test: boolean;
-};
-
-const App: FC<PropsType> = (props) => {
+const App: FC<AppProps> = (props) => {
   console.log(props);
   const [counter, setCounter] = useState(0);
 

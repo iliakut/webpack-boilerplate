@@ -4,17 +4,22 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PrettierPlugin = require('prettier-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-const paths = require('./paths');
+const { src, build, public: publicDir } = require('./paths');
 
-const isDevelopment = process.env.NODE_ENV !== 'production';
+const Env = {
+  development: 'development',
+  production: 'production'
+}
+
+const isDevelopment = process.env.NODE_ENV !== Env.development;
 
 module.exports = {
-  mode: isDevelopment ? 'development' : 'production',
+  mode: process.env.NODE_ENV,
 
-  entry: [paths.src + '/index.tsx'],
+  entry: [`${src}/index.tsx`],
 
   output: {
-    path: paths.build,
+    path: build,
     filename: '[name].bundle.js',
     publicPath: '/',
   },
@@ -25,7 +30,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: paths.public,
+          from: publicDir,
           to: 'assets',
           globOptions: {
             ignore: ['*.DS_Store'],
@@ -37,8 +42,8 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       title: 'webpack Boilerplate',
-      favicon: paths.src + '/images/favicon.png',
-      template: paths.src + '/template.html',
+      favicon: `${src}/images/favicon.png`,
+      template: `${src}/template.html`,
       filename: 'index.html',
     }),
 
@@ -59,8 +64,8 @@ module.exports = {
             loader: require.resolve('babel-loader'),
             options: {
               plugins: [
-                isDevelopment && require.resolve('react-refresh/babel'),
-              ]
+                isDevelopment ? require.resolve('react-refresh/babel') : false
+              ].filter(Boolean)
             }
           }
         ],
@@ -86,10 +91,10 @@ module.exports = {
   },
 
   resolve: {
-    modules: [paths.src, 'node_modules'],
+    modules: [src, 'node_modules'],
     extensions: ['.js', '.jsx', '.ts', '.tsx',],
     alias: {
-      '@': paths.src,
+      '@': src,
     },
   },
 };

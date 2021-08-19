@@ -1,5 +1,5 @@
 {
-  "ignorePatterns": ["dist", "node_modules", "config"],
+  "ignorePatterns": ["dist", "node_modules", "webpack"],
   "rules": {
     "max-len": [
       "error",
@@ -8,7 +8,6 @@
         "code": 120
       }
     ],
-    "prefer-template": "off",
     "indent": [1, 2],
     "object-curly-spacing": 1,
     "no-multiple-empty-lines": [
@@ -18,19 +17,12 @@
         "maxEOF": 1
       }
     ],
-    "camelcase": 1,
     "semi": [1, "always"],
-    "no-new-wrappers": 1,
-    "no-nested-ternary": 1,
-    "no-template-curly-in-string": 1,
-    "no-self-compare": 1,
-    "import/prefer-default-export": 0,
     "func-names": [1, "as-needed"],
-    "arrow-body-style": 1,
-    "import/no-extraneous-dependencies": ["off", { "devDependencies": false }],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "import/no-namespace": 2,
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -40,7 +32,13 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
+    ],
+    "sort-imports": ["error", {
+      "ignoreCase": false,
+      "ignoreDeclarationSort": true,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
+    }]
   },
   "env": {
     "browser": true,
@@ -69,10 +67,11 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "config/webpack.common.js"
+        "config": "webpack/webpack.common.js"
       },
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["src"]
       }
 
     }

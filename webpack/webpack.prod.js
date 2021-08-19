@@ -5,7 +5,7 @@ const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const isAnalyze = typeof process.env.BUNDLE_ANALYZE !== "undefined";
+const needAnalyze = Boolean(process.env.BUNDLE_ANALYZE);
 
 module.exports = merge(common, {
   mode: 'production',
@@ -44,7 +44,7 @@ module.exports = merge(common, {
       filename: 'styles/[name].[contenthash].css',
       chunkFilename: '[id].css',
     }),
-    isAnalyze ? new BundleAnalyzerPlugin() : false
+    needAnalyze ? new BundleAnalyzerPlugin() : false
   ].filter(Boolean),
 
   optimization: {

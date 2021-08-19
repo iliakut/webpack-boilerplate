@@ -6,10 +6,10 @@
   "author": "Tania Rascia",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "build:analyze": "cross-env NODE_ENV=production BUNDLE_ANALYZE=true webpack --progress --config config/webpack.prod.js",
-    "lint": "eslint . src || true"
+    "start": "cross-env NODE_ENV=development webpack serve --config webpack/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js",
+    "build:analyze": "cross-env NODE_ENV=production BUNDLE_ANALYZE=true webpack --progress --config webpack/webpack.prod.js",
+    "lint": "eslint src"
   },
   "keywords": [
     "webpack",
@@ -39,7 +39,7 @@
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-webpack": "^0.13.1",
-    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-import": "^2.24.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
