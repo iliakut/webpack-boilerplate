@@ -42,9 +42,10 @@ cd dist && http-server
 
 - [webpack](https://webpack.js.org/)
 - [Babel](https://babeljs.io/)
+- [React](https://github.com/facebook/react)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Sass](https://sass-lang.com/)
 - [PostCSS](https://postcss.org/)
-- [React](https://github.com/facebook/react)
 
 ## Dependencies
 
@@ -93,6 +94,7 @@ cd dist && http-server
 - [`eslint-webpack-plugin`](https://github.com/webpack-contrib/eslint-webpack-plugin) - ESLint configuration for webpack
 - [`prettier`](https://github.com/prettier/prettier) - Dependency for `prettier-webpack-plugin` plugin
 - [`prettier-webpack-plugin`](https://github.com/hawkins/prettier-webpack-plugin) - Prettier configuration for webpack
+- [`husky`](https://github.com/typicode/husky) - Modern native Git hooks made easy
 
 ## Author
 

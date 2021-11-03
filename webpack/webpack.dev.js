@@ -1,10 +1,9 @@
 const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const { merge } = require('webpack-merge');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const common = require('./webpack.common');
-const paths = require('./paths');
+const paths = require('./paths.conf');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -13,10 +12,8 @@ module.exports = merge(common, {
 
   devServer: {
     historyApiFallback: true,
-    contentBase: paths.build,
-    open: true,
+    static: paths.build,
     compress: true,
-    hot: true,
     port: 8080,
   },
 
@@ -28,7 +25,13 @@ module.exports = merge(common, {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { sourceMap: true, importLoaders: 1, modules: true },
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+              modules: {
+                auto: /\.module\.\w+$/i,
+              },
+            },
           },
           { loader: 'postcss-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: { sourceMap: true } },
@@ -37,9 +40,5 @@ module.exports = merge(common, {
     ],
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new ReactRefreshWebpackPlugin(),
-    new BundleAnalyzerPlugin()
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()],
 });
