@@ -1,3 +1,3 @@
-export type AppProps = {
+export type TAppProps = {
   test: boolean;
 };

@@ -4,14 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PrettierPlugin = require('prettier-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-const { src, build, public: publicDir } = require('./paths');
+const { src, build, public: publicDir } = require('./paths.conf');
 
 const Env = {
   development: 'development',
   production: 'production'
 }
 
-const isDevelopment = process.env.NODE_ENV !== Env.development;
+const isDevelopment = process.env.NODE_ENV === Env.development;
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -41,7 +41,7 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      title: 'webpack Boilerplate',
+      title: 'Webpack 5 boilerplate',
       favicon: `${src}/images/favicon.png`,
       template: `${src}/template.html`,
       filename: 'index.html',
@@ -92,7 +92,7 @@ module.exports = {
 
   resolve: {
     modules: [src, 'node_modules'],
-    extensions: ['.js', '.jsx', '.ts', '.tsx',],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@': src,
     },

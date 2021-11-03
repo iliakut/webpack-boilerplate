@@ -8,6 +8,7 @@
         "code": 120
       }
     ],
+    "max-params": ["error", 2],
     "indent": [1, 2],
     "object-curly-spacing": 1,
     "no-multiple-empty-lines": [
@@ -17,11 +18,13 @@
         "maxEOF": 1
       }
     ],
+    "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     "semi": [1, "always"],
     "func-names": [1, "as-needed"],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/prop-types": 0,
     "import/no-namespace": 2,
     "import/extensions": [
       "error",
@@ -33,12 +36,37 @@
         "tsx": "never"
       }
     ],
+    "import/prefer-default-export": "off",
     "sort-imports": ["error", {
       "ignoreCase": false,
       "ignoreDeclarationSort": true,
       "ignoreMemberSort": false,
       "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
-    }]
+    }],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": [
+          "PascalCase"
+        ],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      },
+      {
+        "selector": "typeAlias",
+        "format": ["PascalCase"],
+        "prefix": ["T"]
+      },
+      {
+        "selector": "variable",
+        "types": ["boolean"],
+        "format": ["PascalCase"],
+        "prefix": ["is", "should", "has", "can", "did", "will"]
+      }
+    ]
   },
   "env": {
     "browser": true,
@@ -61,9 +89,10 @@
   },
   "parserOptions": {
     "ecmaVersion": 11,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": ["tsconfig.json"]
   },
-  "plugins": ["prettier"],
+  "plugins": ["@typescript-eslint"],
   "settings": {
     "import/resolver": {
       "webpack": {

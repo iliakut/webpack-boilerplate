@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react';
-import { AppProps } from './App.types';
+import { TAppProps } from './App.types';
 import Logo from '../images/webpack-logo.svg';
 
-const App: FC<AppProps> = (props) => {
+const App: FC<TAppProps> = (props) => {
   console.log(props);
   const [counter, setCounter] = useState(0);
 
